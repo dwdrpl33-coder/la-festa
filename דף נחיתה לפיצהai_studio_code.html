@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Festa | פיצה פרימיום ובירת קראפט</title>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #c5a059;
+            --dark-gold: #947a45;
+            --charcoal: #1a1a1a;
+            --off-white: #f9f7f2;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Assistant', sans-serif;
+            background-color: var(--off-white);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&q=80&w=2000'); /* Placeholder for premium pizza image */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .logo-text {
+            font-size: 5rem;
+            letter-spacing: 10px;
+            margin: 0;
+            color: var(--gold);
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            font-weight: 200;
+            margin: 20px 0;
+        }
+
+        .cta-button {
+            background-color: var(--gold);
+            color: var(--charcoal);
+            padding: 15px 40px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--gold);
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--gold);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 100px 10% ;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            margin: 15px auto;
+        }
+
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            background-color: var(--charcoal);
+            color: white;
+            padding: 80px 10%;
+            max-width: 100%;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feature-item h3 {
+            color: var(--gold);
+            font-size: 1.5rem;
+        }
+
+        /* Menu Grid */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .menu-card {
+            background: white;
+            padding: 25px;
+            border-right: 4px solid var(--gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-card h3 {
+            margin-top: 0;
+            color: var(--dark-gold);
+        }
+
+        .badge {
+            font-size: 0.8rem;
+            background: #e0e0e0;
+            padding: 2px 10px;
+            border-radius: 10px;
+            margin-right: 5px;
+        }
+
+        /* The Bar Section */
+        .bar-section {
+            background-color: #f0ede5;
+            padding: 80px 10%;
+        }
+
+        .beer-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .beer-item {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+        }
+
+        /* Packages */
+        .packages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .package-card {
+            border: 1px solid #ddd;
+            padding: 40px;
+            text-align: center;
+            background: white;
+        }
+
+        .package-card.featured {
+            background: var(--charcoal);
+            color: white;
+            border: none;
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 20px 0;
+            display: block;
+        }
+
+        /* Footer/Contact */
+        footer {
+            background: var(--charcoal);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .contact-info {
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .logo-text { font-size: 3rem; }
+            section { padding: 60px 5%; }
+            .package-card.featured { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <header class="hero">
+        <h1 class="logo-text">LA FESTA</h1>
+        <p>חוויה קולינרית ניידת של פיצה נאפוליטנית פרימיום, בירת קראפט ישראלית ואווירת בוטיק בלתי נשכחת.</p>
+        <a href="#contact" class="cta-button">הזמינו אירוע פרימיום</a>
+    </header>
+
+    <!-- About -->
+    <section>
+        <h2 class="section-title">הקונספט</h2>
+        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+            <p>אנחנו לא רק מספקים אוכל, אנחנו מפיקים פסטיבל פרטי אצלכם. שילוב של טאבוני אבן ב-450 מעלות, בצק מחמצת של 72 שעות וחומרי גלם D.O.P יוצרים את הפיצה המושלמת לאירוע שלכם.</p>
+        </div>
+    </section>
+
+    <!-- Values / Features -->
+    <div class="features">
+        <div class="feature-item">
+            <h3>ניידות מלאה</h3>
+            <p>מגיעים לכל מקום עם ציוד קצה מקצועי</p>
+        </div>
+        <div class="feature-item">
+            <h3>איכות ללא פשרות</h3>
+            <p>גבינת מוצרלה טרייה, עגבניות סן מרזנו ושמן זית מעולה</p>
+        </div>
+        <div class="feature-item">
+            <h3>חוויה היקפית</h3>
+            <p>מוזיקה, תאורת וינטאג' ומשחקי חברה ענקיים</p>
+        </div>
+    </div>
+
+    <!-- Pizza Menu -->
+    <section>
+        <h2 class="section-title">מהטאבון שלנו</h2>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <h3>מרגריטה קלאסיקה <span class="badge">צמחוני</span></h3>
+                <p>רוטב עגבניות סן מרזנו, קרעי מוצרלה טרייה, בזיליקום ושמן זית.</p>
+            </div>
+            <div class="menu-card">
+                <h3>פפרוני לוהט (Diavola)</h3>
+                <p>מוצרלה, פפרוני בקר איכותי, חלפיניו וזילוף דבש חריף.</p>
+            </div>
+            <div class="menu-card">
+                <h3>מלכת היער (Tartufo)</h3>
+                <p>בסיס קרם מסקרפונה וכמהין, פטריות שמפיניון ויער צלויות, פרמז'ן וטימין.</p>
+            </div>
+            <div class="menu-card">
+                <h3>בוראטה ופיסטוק</h3>
+                <p>בסיס לבן, קרם פיסטוק מלוח, כדור בוראטה שנקרע במקום ושבבי פיסטוק.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Craft Beer Bar -->
+    <div class="bar-section">
+        <section>
+            <h2 class="section-title">בר הקראפט הישראלי</h2>
+            <div class="menu-grid">
+                <div>
+                    <h3>הבירות שלנו (מהחבית)</h3>
+                    <ul class="beer-list">
+                        <li class="beer-item"><span>Hop Storm - IPA פירותית</span> <span>6.5%</span></li>
+                        <li class="beer-item"><span>Sunny Weiss - חיטה רעננה</span> <span>5.2%</span></li>
+                        <li class="beer-item"><span>Easy Breezy - בלונד אייל קלילה</span> <span>4.8%</span></li>
+                        <li class="beer-item"><span>Apple Crisp - סיידר תפוחים אלכוהולי</span> <span>5%</span></li>
+                    </ul>
+                </div>
+                <div style="background: var(--charcoal); color: white; padding: 30px; border-radius: 10px;">
+                    <h3>החוויה הניידת</h3>
+                    <p>מערכת מזיגה מקצועית (Kegerator) מעוצבת מעץ טבעי, המגישה בירות ממבשלות הבוטיק הטובות בישראל.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Packages -->
+    <section>
+        <h2 class="section-title">חבילות אירוח</h2>
+        <div class="packages">
+            <div class="package-card">
+                <h3>The Margherita</h3>
+                <span class="price">₪95</span>
+                <p>פיצות קלאסיות, פוקאצ'ות, שתייה קלה ומוזיקת רקע.</p>
+                <p><strong>מינימום 50 איש</strong></p>
+            </div>
+            <div class="package-card featured">
+                <h3>The Artisan</h3>
+                <span class="price" style="color: var(--gold);">₪160</span>
+                <p>תפריט הפיצות המלא, פוקאצ'ות וסלטים, <strong>בר בירה ללא הגבלה</strong> ומשחקי חברה.</p>
+                <p>הבחירה הפופולרית ביותר</p>
+            </div>
+            <div class="package-card">
+                <h3>The Festival</h3>
+                <span class="price">₪220</span>
+                <p>חבילת ה-VIP: פיצות פרימיום, בר אלכוהול מלא, קינוחים, עמדת Pizzaiolo וסטאפ תאורה מלא.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <footer id="contact">
+        <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--gold);">LA FESTA</h2>
+        <p>מוכנים להפוך את האירוע שלכם לחגיגה?</p>
+        <div class="contact-info">
+            <p>שירותי קייטרינג אירועי בוטיק נייד</p>
+            <p>זמינים לאירועי חברה, ימי הולדת וחתונות בוטיק</p>
+        </div>
+        <a href="mailto:events@lafesta.co.il" class="cta-button">דברו איתנו</a>
+        <p style="margin-top: 50px; font-size: 0.8rem; opacity: 0.6;">&copy; 2024 La Festa Mobile Catering. כל הזכויות שמורות.</p>
+    </footer>
+
+</body>
+</html>

@@ -4,362 +4,222 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Festa | פיצה פרימיום ובירת קראפט</title>
+    <!-- פונטים וסמלים -->
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
         :root {
             --gold: #c5a059;
             --dark-gold: #947a45;
             --charcoal: #1a1a1a;
             --off-white: #f9f7f2;
-            --glass: rgba(255, 255, 255, 0.05);
+            --whatsapp-green: #25d366;
         }
 
         body {
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             font-family: 'Assistant', sans-serif;
             background-color: var(--off-white);
             color: var(--charcoal);
             line-height: 1.6;
         }
 
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-        }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
         /* Hero Section */
         .hero {
-            height: 100vh;
+            height: 90vh;
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&q=80&w=2000'); /* Placeholder for premium pizza image */
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            padding: 20px;
+                        url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; color: white; padding: 20px;
         }
 
-        .logo-text {
-            font-size: 5rem;
-            letter-spacing: 10px;
-            margin: 0;
-            color: var(--gold);
-            text-transform: uppercase;
-        }
+        .logo-text { font-size: 5rem; letter-spacing: 10px; margin: 0; color: var(--gold); }
 
-        .hero p {
-            font-size: 1.5rem;
-            max-width: 800px;
-            font-weight: 200;
-            margin: 20px 0;
-        }
-
-        .cta-button {
-            background-color: var(--gold);
-            color: var(--charcoal);
-            padding: 15px 40px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2rem;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            border: 2px solid var(--gold);
-            margin-top: 20px;
-        }
-
-        .cta-button:hover {
-            background-color: transparent;
-            color: var(--gold);
-        }
-
-        /* Section Styling */
-        section {
-            padding: 100px 10% ;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background: var(--gold);
-            margin: 15px auto;
-        }
-
-        /* Features */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+        /* Form Styling */
+        .contact-section {
             background-color: var(--charcoal);
             color: white;
             padding: 80px 10%;
-            max-width: 100%;
+            text-align: center;
         }
 
-        .feature-item {
-            text-align: center;
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border: 1px solid var(--gold);
+            border-radius: 5px;
+        }
+
+        .form-group { margin-bottom: 20px; text-align: right; }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--gold);
+            color: white;
+            font-family: 'Assistant', sans-serif;
+            box-sizing: border-box;
+        }
+
+        input:focus { outline: none; border-bottom: 2px solid white; }
+
+        .submit-btn {
+            background-color: var(--gold);
+            color: var(--charcoal);
+            border: none;
+            padding: 15px 40px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.1rem;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover { background-color: white; }
+
+        #success-message {
+            display: none;
+            color: var(--gold);
+            font-size: 1.3rem;
+            font-weight: bold;
             padding: 20px;
         }
 
-        .feature-item h3 {
-            color: var(--gold);
-            font-size: 1.5rem;
-        }
-
-        /* Menu Grid */
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .menu-card {
-            background: white;
-            padding: 25px;
-            border-right: 4px solid var(--gold);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .menu-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .menu-card h3 {
-            margin-top: 0;
-            color: var(--dark-gold);
-        }
-
-        .badge {
-            font-size: 0.8rem;
-            background: #e0e0e0;
-            padding: 2px 10px;
-            border-radius: 10px;
-            margin-right: 5px;
-        }
-
-        /* The Bar Section */
-        .bar-section {
-            background-color: #f0ede5;
-            padding: 80px 10%;
-        }
-
-        .beer-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .beer-item {
+        /* Floating WhatsApp - Updated with your bot number */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background-color: var(--whatsapp-green);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 35px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
             display: flex;
-            justify-content: space-between;
-            border-bottom: 1px solid #ddd;
-            padding: 15px 0;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s;
         }
 
-        /* Packages */
-        .packages {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
+        .whatsapp-float:hover { transform: scale(1.1); color: white; }
 
-        .package-card {
-            border: 1px solid #ddd;
-            padding: 40px;
-            text-align: center;
-            background: white;
-        }
+        /* General Section Styles */
+        section { padding: 80px 10%; max-width: 1200px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 40px; }
+        .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: var(--gold); margin: 15px auto; }
 
-        .package-card.featured {
-            background: var(--charcoal);
-            color: white;
-            border: none;
-            transform: scale(1.05);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-        }
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .menu-card { background: white; padding: 25px; border-right: 4px solid var(--gold); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
 
-        .price {
-            font-size: 3rem;
-            font-weight: 800;
-            margin: 20px 0;
-            display: block;
-        }
-
-        /* Footer/Contact */
-        footer {
-            background: var(--charcoal);
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
-        }
-
-        .contact-info {
-            margin-bottom: 30px;
-        }
+        footer { background: #111; color: white; text-align: center; padding: 40px; font-size: 0.9rem; }
 
         @media (max-width: 768px) {
             .logo-text { font-size: 3rem; }
-            section { padding: 60px 5%; }
-            .package-card.featured { transform: scale(1); }
+            section { padding: 40px 5%; }
         }
     </style>
 </head>
 <body>
 
+    <!-- כפתור וואטסאפ צף מחובר לבוט שלך -->
+    <a href="https://wa.me/972532096798?text=היי%20La%20Festa,%20אשמח%20לקבל%20פרטים%20לגבי%20אירוע" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <!-- Hero -->
     <header class="hero">
         <h1 class="logo-text">LA FESTA</h1>
-        <p>חוויה קולינרית ניידת של פיצה נאפוליטנית פרימיום, בירת קראפט ישראלית ואווירת בוטיק בלתי נשכחת.</p>
-        <a href="#contact" class="cta-button">הזמינו אירוע פרימיום</a>
+        <p style="font-size: 1.5rem; font-weight: 200;">פיצה פרימיום | בירת קראפט | חוויות</p>
     </header>
 
-    <!-- About -->
+    <!-- Concept -->
     <section>
         <h2 class="section-title">הקונספט</h2>
-        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-            <p>אנחנו לא רק מספקים אוכל, אנחנו מפיקים פסטיבל פרטי אצלכם. שילוב של טאבוני אבן ב-450 מעלות, בצק מחמצת של 72 שעות וחומרי גלם D.O.P יוצרים את הפיצה המושלמת לאירוע שלכם.</p>
-        </div>
+        <p style="text-align: center; max-width: 700px; margin: 0 auto;">
+            אנחנו מביאים את איטליה ואת מבשלות הבוטיק הישראליות עד אליכם. 
+            אירוע קולינרי נייד המבוסס על חומרי גלם טריים, טאבוני אבן לוהטים ואווירה של פסטיבל בוטיק.
+        </p>
     </section>
 
-    <!-- Values / Features -->
-    <div class="features">
-        <div class="feature-item">
-            <h3>ניידות מלאה</h3>
-            <p>מגיעים לכל מקום עם ציוד קצה מקצועי</p>
-        </div>
-        <div class="feature-item">
-            <h3>איכות ללא פשרות</h3>
-            <p>גבינת מוצרלה טרייה, עגבניות סן מרזנו ושמן זית מעולה</p>
-        </div>
-        <div class="feature-item">
-            <h3>חוויה היקפית</h3>
-            <p>מוזיקה, תאורת וינטאג' ומשחקי חברה ענקיים</p>
-        </div>
-    </div>
-
-    <!-- Pizza Menu -->
-    <section>
-        <h2 class="section-title">מהטאבון שלנו</h2>
+    <!-- Menu Section -->
+    <section style="background-color: #fff;">
+        <h2 class="section-title">נבחרת הפיצות</h2>
         <div class="menu-grid">
             <div class="menu-card">
-                <h3>מרגריטה קלאסיקה <span class="badge">צמחוני</span></h3>
-                <p>רוטב עגבניות סן מרזנו, קרעי מוצרלה טרייה, בזיליקום ושמן זית.</p>
+                <h3>מרגריטה קלאסיקה</h3>
+                <p>עגבניות סן מרזנו, מוצרלה טרייה ובזיליקום.</p>
             </div>
             <div class="menu-card">
-                <h3>פפרוני לוהט (Diavola)</h3>
-                <p>מוצרלה, פפרוני בקר איכותי, חלפיניו וזילוף דבש חריף.</p>
+                <h3>פפרוני דבש חריף</h3>
+                <p>מוצרלה, פפרוני בקר וזילוף דבש חריף ביתי.</p>
             </div>
             <div class="menu-card">
-                <h3>מלכת היער (Tartufo)</h3>
-                <p>בסיס קרם מסקרפונה וכמהין, פטריות שמפיניון ויער צלויות, פרמז'ן וטימין.</p>
-            </div>
-            <div class="menu-card">
-                <h3>בוראטה ופיסטוק</h3>
-                <p>בסיס לבן, קרם פיסטוק מלוח, כדור בוראטה שנקרע במקום ושבבי פיסטוק.</p>
+                <h3>בוראטה פיסטוק</h3>
+                <p>בסיס לבן, קרם פיסטוק מלוח וכדור בוראטה קרמי.</p>
             </div>
         </div>
     </section>
 
-    <!-- Craft Beer Bar -->
-    <div class="bar-section">
-        <section>
-            <h2 class="section-title">בר הקראפט הישראלי</h2>
-            <div class="menu-grid">
-                <div>
-                    <h3>הבירות שלנו (מהחבית)</h3>
-                    <ul class="beer-list">
-                        <li class="beer-item"><span>Hop Storm - IPA פירותית</span> <span>6.5%</span></li>
-                        <li class="beer-item"><span>Sunny Weiss - חיטה רעננה</span> <span>5.2%</span></li>
-                        <li class="beer-item"><span>Easy Breezy - בלונד אייל קלילה</span> <span>4.8%</span></li>
-                        <li class="beer-item"><span>Apple Crisp - סיידר תפוחים אלכוהולי</span> <span>5%</span></li>
-                    </ul>
+    <!-- Contact Form Section -->
+    <div class="contact-section" id="lead-form">
+        <h2 class="section-title" style="color: var(--gold);">דברו איתנו</h2>
+        <p>השאירו פרטים ונחזור אליכם עם הצעה לאירוע בלתי נשכח</p>
+        
+        <div class="form-container">
+            <form id="laFestaForm">
+                <div class="form-group">
+                    <label>שם מלא</label>
+                    <input type="text" id="name" name="name" required placeholder="איך קוראים לכם?">
                 </div>
-                <div style="background: var(--charcoal); color: white; padding: 30px; border-radius: 10px;">
-                    <h3>החוויה הניידת</h3>
-                    <p>מערכת מזיגה מקצועית (Kegerator) מעוצבת מעץ טבעי, המגישה בירות ממבשלות הבוטיק הטובות בישראל.</p>
+                <div class="form-group">
+                    <label>טלפון</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="נחזור אליכם למספר הזה">
                 </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Packages -->
-    <section>
-        <h2 class="section-title">חבילות אירוח</h2>
-        <div class="packages">
-            <div class="package-card">
-                <h3>The Margherita</h3>
-                <span class="price">₪95</span>
-                <p>פיצות קלאסיות, פוקאצ'ות, שתייה קלה ומוזיקת רקע.</p>
-                <p><strong>מינימום 50 איש</strong></p>
-            </div>
-            <div class="package-card featured">
-                <h3>The Artisan</h3>
-                <span class="price" style="color: var(--gold);">₪160</span>
-                <p>תפריט הפיצות המלא, פוקאצ'ות וסלטים, <strong>בר בירה ללא הגבלה</strong> ומשחקי חברה.</p>
-                <p>הבחירה הפופולרית ביותר</p>
-            </div>
-            <div class="package-card">
-                <h3>The Festival</h3>
-                <span class="price">₪220</span>
-                <p>חבילת ה-VIP: פיצות פרימיום, בר אלכוהול מלא, קינוחים, עמדת Pizzaiolo וסטאפ תאורה מלא.</p>
+                <button type="submit" class="submit-btn">שלח פרטים</button>
+            </form>
+            
+            <!-- הודעת אישור שתופיע לאחר השליחה -->
+            <div id="success-message">
+                <i class="fas fa-check-circle" style="font-size: 2rem; margin-bottom: 10px;"></i><br>
+                תודה! הפרטים התקבלו בהצלחה.<br>
+                נציג מ-La Festa יחזור אליכם בהקדם.
             </div>
         </div>
-    </section>
-
-    <!-- Contact -->
-    <footer id="contact">
-        <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--gold);">LA FESTA</h2>
-        <p>מוכנים להפוך את האירוע שלכם לחגיגה?</p>
-        <div class="contact-info">
-            <p>שירותי קייטרינג אירועי בוטיק נייד</p>
-            <p>זמינים לאירועי חברה, ימי הולדת וחתונות בוטיק</p>
-        </div>
-        <a href="mailto:events@lafesta.co.il" class="cta-button">דברו איתנו</a>
-        <p style="margin-top: 50px; font-size: 0.8rem; opacity: 0.6;">&copy; 2024 La Festa Mobile Catering. כל הזכויות שמורות.</p>
-   <!-- אזור השארת פרטים -->
-<div style="max-width: 400px; margin: 40px auto; padding: 24px; background: #1e293b; border-radius: 16px; color: white; text-align: right; direction: rtl; font-family: sans-serif; box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
-  <h3 style="font-size: 22px; font-weight: bold; margin-bottom: 8px; text-align: center;">רוצים פרטים נוספים?</h3>
-  <p style="font-size: 14px; color: #94a3b8; margin-bottom: 20px; text-align: center;">השאירו פרטים ונחזור אליכם בהקדם</p>
-  
-  <form id="leadForm">
-    <div style="margin-bottom: 14px;">
-      <label style="display: block; font-size: 13px; margin-bottom: 6px; color: #cbd5e1;">שם מלא</label>
-      <input type="text" id="name" required style="width: 100%; padding: 12px; background: #0f172a; border: 1px solid #334155; border-radius: 8px; color: white; box-sizing: border-box; font-size: 14px;" placeholder="ישראל ישראלי">
     </div>
 
-    <div style="margin-bottom: 20px;">
-      <label style="display: block; font-size: 13px; margin-bottom: 6px; color: #cbd5e1;">מספר טלפון</label>
-      <input type="tel" id="phone" required style="width: 100%; padding: 12px; background: #0f172a; border: 1px solid #334155; border-radius: 8px; color: white; box-sizing: border-box; font-size: 14px;" placeholder="050-0000000">
-    </div>
+    <footer>
+        <p>LA FESTA - Mobile Catering & Craft Beer</p>
+        <p style="opacity: 0.5;">© 2026 כל הזכויות שמורות</p>
+    </footer>
 
-    <button type="submit" id="submitBtn" style="width: 100%; padding: 14px; background: #4f46e5; color: white; border: none; border-radius: 8px; font-weight: bold; font-size: 16px; cursor: pointer;">
-      שליחת פרטים
-    </button>
-  </form>
-</div>
-</footer>
-<!-- כפתור וואצאפ צף -->
-<a href="https://wa.me/972532096798?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%A8%D7%A6%D7%99%D7%AA%D7%99%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%94%D7%90%D7%99%D7%A8%D7%95%D7%A2%D7%99%D7%9D%20%D7%A9%D7%9C%D7%9B%D7%9D" 
-   target="_blank" 
-   style="position: fixed; bottom: 24px; right: 24px; background-color: #10b981; color: white; padding: 12px 20px; border-radius: 50px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3); z-index: 9999; font-family: sans-serif;">
-  <svg style="width: 24px; height: 24px; fill: currentColor;" viewBox="0 0 24 24">
-    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-  </svg>
-  <span>לשיחה עם נציג</span>
-</a>
+    <!-- Script לניהול שליחת הטופס -->
+    <script>
+        document.getElementById('laFestaForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // מונע מהדף להתרענן
+            
+            // כאן אפשר להוסיף קוד שישלח את המידע לשרת/למייל אם תרצה בעתיד
+            
+            // מסתיר את הטופס
+            this.style.display = 'none';
+            
+            // מציג את הודעת האישור
+            document.getElementById('success-message').style.display = 'block';
+        });
+    </script>
+
 </body>
 </html>

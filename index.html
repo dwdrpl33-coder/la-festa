@@ -220,6 +220,62 @@
             document.getElementById('success-message').style.display = 'block';
         });
     </script>
+<!-- סקריפט חיבור הטופס ל-n8n -->
+<script>
+  const WEBHOOK_URL = 'https://n8n-production-3818.up.railway.app/webhook-test/5c1c91dc-0a9c-4e15-aa13-596e7e2ad9fd';
 
+  document.addEventListener('DOMContentLoaded', () => {
+    // מציאת הטופס בדף (לפי ID או הטופס הראשון שיש בדף)
+    const form = document.getElementById('leadForm') || document.querySelector('form');
+    
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        // מציאת הכפתור
+        const btn = form.querySelector('button[type="submit"]') || form.querySelector('button');
+        const originalText = btn ? btn.innerText : 'שליחה';
+        
+        if (btn) {
+          btn.disabled = true;
+          btn.innerText = 'שולח...';
+        }
+
+        // מציאת השדות (לפי ID או לפי סוג הקלט)
+        const nameInput = document.getElementById('name') || form.querySelector('input[type="text"]');
+        const phoneInput = document.getElementById('phone') || form.querySelector('input[type="tel"]');
+
+        const payload = {
+          name: nameInput ? nameInput.value : '',
+          phone: phoneInput ? phoneInput.value : '',
+          submittedAt: new Date().toISOString()
+        };
+
+        try {
+          const response = await fetch(WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+
+          if (response.ok) {
+            alert('הפרטים נשלחו בהצלחה!');
+            form.reset();
+          } else {
+            alert('אירעה שגיאה בשליחת הנתונים. ודא ש-n8n ממתין במצב Test Step.');
+          }
+        } catch (err) {
+          alert('שגיאה בחיבור ל-n8n.');
+          console.error(err);
+        } finally {
+          if (btn) {
+            btn.disabled = false;
+            btn.innerText = originalText;
+          }
+        }
+      });
+    }
+  });
+</script>
 </body>
 </html>
